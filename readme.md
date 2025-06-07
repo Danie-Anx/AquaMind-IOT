@@ -38,7 +38,7 @@ AquaMind-IOT/
 1. **Clonar repositório**
 
    ```bash
-   git clone <URL_DO_REPO>
+   git clone <https://github.com/Danie-Anx/AquaMind-IOT.git>
    cd AquaMind-IOT
    ```
 
@@ -47,22 +47,6 @@ AquaMind-IOT/
    ```bash
    pip install -r requirements.txt
    ```
-
----
-
-## Geração de Dados
-
-Se não houver um arquivo `data/sensor_data.csv` real com leituras de sensores, você pode simular dados executando o script de geração ou usando a célula de simulação em `notebooks/AquaMind_Model.ipynb`.
-
-Exemplo de script opcional `gen_data.py`:
-
-```python
-import pandas as pd, numpy as np, os
-os.makedirs('data', exist_ok=True)
-timestamps = pd.date_range('2025-01-01', '2025-01-07', freq='15min')
-# ... simulação de soil_moisture e temperature ...
-df.to_csv('data/sensor_data.csv', index=False)
-```
 
 ---
 
@@ -149,12 +133,4 @@ Predicted soil moisture: 39.44%
 
 ---
 
-## Próximos Passos
 
-* Ajuste de hiperparâmetros e outras arquiteturas de modelo.
-* Análise de resíduos e métricas adicionais (precision, recall, F1).
-* Teste em dados reais de sensores para validação final e ajustes de features.
-
----
-
-Qualquer dúvida ou sugestão, fique à vontade para abrir uma issue ou pull request. Bons testes!
