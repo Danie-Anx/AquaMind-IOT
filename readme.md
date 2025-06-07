@@ -101,10 +101,6 @@ AquaMind-IOT/
    ```bash
    python model_api.py
    ```
-3. Você verá algo como:
-
-   ```
-   ```
 
 # Running on [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
 
