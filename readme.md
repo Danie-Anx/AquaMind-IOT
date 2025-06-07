@@ -4,6 +4,29 @@ O **AquaMind** é uma solução completa que integra IoT, machine learning e API
 
 ---
 
+## Descrição do Problema
+Neste documento, apresentamos o desafio de escassez hídrica enfrentado por pequenos e médios produtores rurais, explicando como a variabilidade climática e a falta de um sistema de irrigação automatizado resultam em desperdício de água, baixa produtividade e prejuízos econômicos.
+
+## Metodologia (EDA, Pré-processamento, Modelos, Validação)
+
+1. **Análise Exploratória de Dados (EDA)**  
+   - Visualização de séries temporais de umidade e temperatura.  
+   - Identificação de outliers e tratamento de valores faltantes. 
+
+2. **Pré-processamento**  
+   - Remoção de outliers com z-score.  
+   - Criação de features temporais (hora, dia do ano, média móvel).  
+   - Escalonamento com StandardScaler. 
+
+3. **Modelagem**  
+   - Teste de três algoritmos de regressão (Linear Regression, Decision Tree, MLP) e três classificadores (Logistic Regression, Decision Tree, Random Forest).  
+   
+4. **Validação**  
+   - Validação cruzada k-fold (5 splits).  
+   - Comparação de métricas (RMSE para regressão; acurácia para classificação).
+
+---
+
 ## Estrutura do Projeto
 
 ```
@@ -133,4 +156,26 @@ Predicted soil moisture: 39.44%
 
 ---
 
+## Resultados (RMSE, R², Acurácia, Métricas de Classificação)
 
+- **Regressão**  
+  - RMSE médio em validação cruzada: 2.246  
+  - RMSE no conjunto de teste: 2.456  
+  - R² no conjunto de teste: 0.880  
+  
+- **Classificação**  
+  - Acurácia média em validação cruzada: 95.72%  
+  - Acurácia no conjunto de teste: 95.6%  
+
+
+
+## Justificativa da Escolha do Modelo
+Baseamos a seleção do melhor modelo nos seguintes critérios:
+
+- **Performance**: menor RMSE e maior R² (para regressão) ou maior acurácia (para classificação).  
+
+- **Estabilidade**: baixo desvio-padrão nas métricas de validação cruzada.  
+
+- **Interpretabilidade**: facilidade de explicar decisões (por exemplo, importâncias de feature na Decision Tree).  
+
+- **Custo de erro**: priorização de minimizar falsos negativos na classificação (“solo seco não irrigado”), garantindo segurança para o produtor.
